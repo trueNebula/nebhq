@@ -6,7 +6,7 @@ import Section from "./components/Section";
 function MainPage() {
   return (
     <>
-      <main className='flex flex-col justify-center items-center overflow-x-clip z-10'>
+      <main className='flex flex-col justify-center items-center overflow-x-clip z-10' id={'hero'}>
         <NavBar />
         <div>
           <Section id='section1'>
