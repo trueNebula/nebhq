@@ -7,7 +7,7 @@ type SectionProps = {
 
 function Section({ id, children }: SectionProps) {
     return (
-        <section className='w-fit my-20' id={id}>
+        <section className='w-fit my-20 px-10' id={id}>
             {children}
         </section>
     );

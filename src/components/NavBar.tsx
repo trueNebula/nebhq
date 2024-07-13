@@ -1,7 +1,7 @@
 import { cubicBezier, motion, useScroll, useTransform } from 'framer-motion';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
-
+import useWindowDimensions from '../hooks/useWindowDimensions';
 type Anchor = {
   section: string;
   title: string;
@@ -29,6 +29,8 @@ const getElementRotation = (element: HTMLDivElement) => {
 
 function NavBar() {
   const { scrollYProgress } = useScroll();
+  const { width, height } = useWindowDimensions();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const anchors: Anchor[] = [
     {
       section: 'section1',
@@ -56,7 +58,23 @@ function NavBar() {
     },
   ];
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  let sizeScale = 1;
+  let gapScale = 1;
+  let xTransformScale = 1;
+  let yTransformScale = 1;
+  let scrollOffsetScale = 1;
+  let heroHeight = 75;
+
+  // TODO: width < 768px => Phone
+  if (width < 768) {
+    // TODO: change hero scaling, anchor position and container position
+    sizeScale = 0.25;
+    gapScale = 0.05;
+    xTransformScale = 0;
+    yTransformScale = 5/6;
+    scrollOffsetScale = 1/5;
+    heroHeight = 85;
+  }
 
   // Container Y position
   const posYContainer = useTransform(
@@ -65,16 +83,16 @@ function NavBar() {
     ['7.5rem', '0rem']
   );
   // Font size transition from large to small
-  const fontSize = useTransform(scrollYProgress, [0, 0.2], ['18rem', '1rem']);
+  const fontSize = useTransform(scrollYProgress, [0, 0.2], [`${18 * sizeScale}rem`, '1rem']);
   // Y Margin transition for the title
   const marginYDiv = useTransform(scrollYProgress, [0, 0.2], ['18rem', '0rem']);
   // Anchor Gap
-  const anchorGap = useTransform(scrollYProgress, [0, 0.2], ['26rem', '1rem']);
+  const anchorGap = useTransform(scrollYProgress, [0, 0.2], [`${26 * gapScale}rem`, '1rem']);
   // Translate X to move the anchors right
   const translateXAnchor = useTransform(
     scrollYProgress,
     [0, 0.2],
-    ['2rem', '10rem'],
+    [`${2 * xTransformScale}rem`, `${10 * xTransformScale}rem`],
     {ease: cubicBezier(0, 0.33, 0.33, 1)}
 
   );
@@ -82,7 +100,7 @@ function NavBar() {
   const translateYAnchor = useTransform(
     scrollYProgress,
     [0, 0.2],
-    ['0rem', '-6rem'],
+    [`0rem`, `${-6 * yTransformScale}rem`],
     {ease: cubicBezier(0.66, 0, 1, 0.3)}
   );
 
@@ -103,6 +121,7 @@ function NavBar() {
   const shouldPlayAnchorAnimation = (anchor: Anchor) => {
     if (!anchor.ref) return false;
     if (!anchor.ref.current) return false;
+    if (width < 768) return false;
     if (scrollYProgress.get() > 0.15) return false;
 
     const rect = anchor.ref.current.getBoundingClientRect();
@@ -120,26 +139,26 @@ function NavBar() {
 
   return (
     <motion.div
-      className="sticky w-full h-[35rem] mb-[33rem]"
+      className='sticky w-full h-[35rem] mb-[33rem]'
       style={{
         top: posYContainer,
       }}>
       <motion.div
-        className="z-50 h-[75px] bg-[rgb(3,7,7)] p-5"
+        className={`z-50 h-[${heroHeight}px] bg-[rgb(3,7,7)] p-5`}
         style={{
           transition: 'all 0.3s ease-in-out',
         }}>
         <motion.div
-          className="hero-bold inline-block cursor-pointer min-w-[75px] min-h-[75px]"
+          className='hero-bold inline-block cursor-pointer min-w-[75px] min-h-[75px]'
           style={{
             fontSize,
           }}>
-          <Link to="hero" spy={true} smooth={true} duration={500}>
+          <Link to='hero' spy={true} smooth={true} duration={500}>
             Hi, I'm Daniel
           </Link>
         </motion.div>
         <motion.div
-          className="flex gap-4 mt-4 mx-4"
+          className='flex gap-4 mt-4 mx-4'
           style={{
             gap: anchorGap,
             marginTop: marginYDiv,
@@ -151,7 +170,7 @@ function NavBar() {
               <motion.div
                 key={anchor.section}
                 ref={anchor.ref}
-                className="mx-2 cursor-pointer h-[75px] w-[75px] flex justify-center items-center"
+                className='mx-2 cursor-pointer h-[75px] w-[75px] flex justify-center items-center'
                 animate={
                   shouldPlayAnchorAnimation(anchor)
                     ? {
@@ -181,7 +200,7 @@ function NavBar() {
                   to={anchor.section}
                   spy={true}
                   smooth={true}
-                  offset={-500}
+                  offset={-500 * scrollOffsetScale}
                   duration={500}>
                   {anchor.title}
                 </Link>
