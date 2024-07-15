@@ -1,7 +1,9 @@
-import { cubicBezier, motion, useScroll, useTransform } from 'framer-motion';
-import { RefObject, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
 import useWindowDimensions from '../hooks/useWindowDimensions';
+import { RefObject, useEffect, useRef, useState } from 'react';
+import { cubicBezier, motion, useScroll, useTransform } from 'framer-motion';
+import "../styles/navBar.css";
+
 type Anchor = {
   section: string;
   title: string;
@@ -29,7 +31,7 @@ const getElementRotation = (element: HTMLDivElement) => {
 
 function NavBar() {
   const { scrollYProgress } = useScroll();
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const anchors: Anchor[] = [
     {
@@ -64,16 +66,17 @@ function NavBar() {
   let yTransformScale = 1;
   let scrollOffsetScale = 1;
   let heroHeight = 75;
+  let disableMouseEffects = false;
 
-  // TODO: width < 768px => Phone
+  // Phone
   if (width < 768) {
-    // TODO: change hero scaling, anchor position and container position
     sizeScale = 0.25;
     gapScale = 0.05;
     xTransformScale = 0;
     yTransformScale = 5/6;
     scrollOffsetScale = 1/5;
     heroHeight = 85;
+    disableMouseEffects = true; 
   }
 
   // Container Y position
@@ -111,12 +114,16 @@ function NavBar() {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    if(!disableMouseEffects) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if(!disableMouseEffects) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
     };
-  }, []);
+  }, [disableMouseEffects]);
 
   const shouldPlayAnchorAnimation = (anchor: Anchor) => {
     if (!anchor.ref) return false;
