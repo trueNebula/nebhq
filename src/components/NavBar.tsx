@@ -1,7 +1,7 @@
 import { Link } from 'react-scroll';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { RefObject, useEffect, useRef, useState } from 'react';
-import { cubicBezier, motion, useScroll, useTransform } from 'framer-motion';
+import { cubicBezier, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import "../styles/navBar.css";
 
 type Anchor = {
@@ -31,6 +31,7 @@ const getElementRotation = (element: HTMLDivElement) => {
 
 function NavBar() {
   const { scrollYProgress } = useScroll();
+  const isReducedMotion = useReducedMotion();
   const { width } = useWindowDimensions();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const anchors: Anchor[] = [
@@ -60,6 +61,7 @@ function NavBar() {
     },
   ];
 
+  let mobileScreen = false;
   let sizeScale = 1;
   let gapScale = 1;
   let xTransformScale = 1;
@@ -68,8 +70,13 @@ function NavBar() {
   let heroHeight = 75;
   let disableMouseEffects = false;
 
+  if (isReducedMotion) { 
+    disableMouseEffects = false;
+  }
+
   // Phone
   if (width < 768) {
+    mobileScreen = true;
     sizeScale = 0.25;
     gapScale = 0.05;
     xTransformScale = 0;
@@ -165,7 +172,7 @@ function NavBar() {
           </Link>
         </motion.div>
         <motion.div
-          className='flex gap-4 mt-4 mx-4'
+          className={`flex gap-4 mt-4 ${!mobileScreen ? 'mx-4' : ''}`}
           style={{
             gap: anchorGap,
             marginTop: marginYDiv,
