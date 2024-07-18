@@ -2,7 +2,7 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
-import { AboutMe, Work, Timeline, Contact } from '@/components/Sections/index';
+import { AboutMe, Work, Timeline, Contact } from '@/components/sections/index';
 
 function MainPage() {
   return (

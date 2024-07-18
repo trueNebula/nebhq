@@ -17,7 +17,8 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/utils/*": ["src/utils/*"],
       "@/assets/*": ["src/assets/*"]
-    }
+    },
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", "dist"],
 }

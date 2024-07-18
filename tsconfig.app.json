@@ -32,7 +32,8 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/utils/*": ["src/utils/*"],
       "@/assets/*": ["src/assets/*"]
-    }
+    },
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"]
 }
