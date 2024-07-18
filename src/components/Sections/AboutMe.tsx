@@ -1,5 +1,6 @@
-import { sections } from "../../utils/sections";
-import Section from "./Section";
+import '@/styles/sections.css';
+import Section from './Section';
+import { sections } from '@/utils/sections';
 
 function AboutMe() {
   return (

@@ -1,6 +1,6 @@
-import { useCallback } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useCallback } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function useWindowDimensions() {
   const hasWindow = typeof window !== 'undefined';

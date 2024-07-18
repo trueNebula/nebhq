@@ -1,9 +1,9 @@
+import '@/styles/navBar.css';
 import { Link } from 'react-scroll';
-import useWindowDimensions from '../hooks/useWindowDimensions';
+import { sections } from '@/utils/sections';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { cubicBezier, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import "../styles/navBar.css";
-import { sections } from '../utils/sections';
 
 type Anchor = {
   section: string;

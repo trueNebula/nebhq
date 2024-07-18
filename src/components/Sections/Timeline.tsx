@@ -1,5 +1,5 @@
-import { sections } from "../../utils/sections";
-import Section from "./Section";
+import Section from './Section';
+import { sections } from '@/utils/sections';
 
 function Timeline() {
   return (
