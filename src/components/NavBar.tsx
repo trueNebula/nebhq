@@ -114,6 +114,12 @@ function NavBar() {
     {ease: cubicBezier(0.66, 0, 1, 0.3)}
   );
 
+  const heroHeightTransform = useTransform(
+    scrollYProgress,
+    [0, 0.2],
+    [`1080px`, `${heroHeight}px`]
+  )
+
   const rotationThreshold = 450;
 
   useEffect(() => {
@@ -151,79 +157,105 @@ function NavBar() {
     return distance < rotationThreshold;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleMouseMoveGlow = (e: any) => {
+    const { currentTarget: target } = e;
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    target.style.setProperty('--mouse-x', `${x}px`);
+    target.style.setProperty('--mouse-y', `${y}px`);
+
+  }
+
+  for (const nav of document.querySelectorAll('.navContainer')) {
+    (nav as HTMLElement).onmousemove = event => handleMouseMoveGlow(event);
+  }
+
   return (
-    <motion.div
-      className='sticky w-full h-[35rem] mb-[33rem]'
-      style={{
-        top: posYContainer,
-      }}>
-      <motion.div
-        className={`z-50 h-[${heroHeight}px] bg-[rgb(3,7,7)] p-5`}
-        style={{
-          transition: 'all 0.3s ease-in-out',
-        }}>
+    <div>
+      {/* <motion.div
+        className='absolute w-full h-[35rem] mb-[33rem]'
+      >
+      </motion.div> */}
+      <div className='fixed left-0 w-screen h-full'>
         <motion.div
-          className='hero-bold inline-block cursor-pointer min-w-[75px] min-h-[75px]'
+          className={`h-auto bg-[rgb(3,7,7)] z-50`}
           style={{
-            fontSize,
+            transition: 'all 0.3s ease-in-out',
           }}>
-          <Link to='hero' spy={true} smooth={true} duration={500}>
-            Hi, I'm Daniel
-          </Link>
-        </motion.div>
-        <motion.div
-          className={`flex gap-4 mt-4 ${!mobileScreen ? 'mx-4' : ''}`}
-          style={{
-            gap: anchorGap,
-            marginTop: marginYDiv,
-            x: translateXAnchor,
-            y: translateYAnchor,
-          }}>
-          {anchors.map((anchor: Anchor) => {
-            return (
+            <motion.div className='h-auto navContainer' style={{height: heroHeightTransform}}>
+              {/* Hero */}
               <motion.div
-                key={anchor.section}
-                ref={anchor.ref}
-                className='mx-2 cursor-pointer h-[75px] w-[75px] flex justify-center items-center'
-                animate={
-                  shouldPlayAnchorAnimation(anchor)
-                    ? {
-                        rotate: ['0deg', `${anchor.rotation * 360}deg`],
-                        transition: {
-                          repeat: Infinity,
-                          duration: 5,
-                          ease: 'linear',
-                        },
-                      }
-                    : {
-                        rotate: '0deg',
-                        transition: {
-                          duration: 0.5,
-                          ease: 'easeOut',
-                        },
-                      }
-                }
-                whileHover={{
-                  rotate: '0deg',
-                  transition: {
-                    duration: 0.3,
-                    ease: 'backOut',
-                  },
+                className='hero-bold relative flex items-center cursor-pointer min-w-[75px] min-h-[75px] navItems pl-5'
+                style={{
+                  fontSize,
+                  paddingTop: posYContainer
+                  // marginTop: posYContainer
                 }}>
-                <Link
-                  to={anchor.section}
-                  spy={true}
-                  smooth={true}
-                  offset={-500 * scrollOffsetScale}
-                  duration={500}>
-                  {anchor.title}
+                <Link to='hero' spy={true} smooth={true} duration={500}>
+                  Hi, I'm Daniel
                 </Link>
               </motion.div>
-            );
-          })}
+              {/* Anchors */}
+              <motion.div
+                className={`flex gap-4 mt-4 pt-5 navItems pl-5 ${!mobileScreen ? 'mx-4' : ''}`}
+                style={{
+                  gap: anchorGap,
+                  marginTop: marginYDiv,
+                  x: translateXAnchor,
+                  y: translateYAnchor,
+                }}>
+                {anchors.map((anchor: Anchor) => {
+                  return (
+                    <motion.div
+                      key={anchor.section}
+                      ref={anchor.ref}
+                      className='mx-2 cursor-pointer h-[75px] w-[75px] flex justify-center items-center'
+                      animate={
+                        shouldPlayAnchorAnimation(anchor)
+                          ? {
+                              rotate: ['0deg', `${anchor.rotation * 360}deg`],
+                              transition: {
+                                repeat: Infinity,
+                                duration: 5,
+                                ease: 'linear',
+                              },
+                            }
+                          : {
+                              rotate: '0deg',
+                              transition: {
+                                duration: 0.5,
+                                ease: 'easeOut',
+                              },
+                            }
+                      }
+                      whileHover={{
+                        rotate: '0deg',
+                        transition: {
+                          duration: 0.3,
+                          ease: 'backOut',
+                        },
+                      }}>
+                      <Link
+                        to={anchor.section}
+                        spy={true}
+                        smooth={true}
+                        offset={-500 * scrollOffsetScale}
+                        duration={500}>
+                        {anchor.title}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </motion.div>
         </motion.div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
