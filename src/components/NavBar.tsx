@@ -3,6 +3,7 @@ import useWindowDimensions from '../hooks/useWindowDimensions';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { cubicBezier, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import "../styles/navBar.css";
+import { sections } from '../utils/sections';
 
 type Anchor = {
   section: string;
@@ -36,25 +37,25 @@ function NavBar() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const anchors: Anchor[] = [
     {
-      section: 'section1',
+      section: sections[0],
       title: 'About Me',
       rotation: 1,
       ref: useRef<HTMLDivElement>(null),
     },
     {
-      section: 'section2',
+      section: sections[1],
       title: 'Work',
       rotation: -1,
       ref: useRef<HTMLDivElement>(null),
     },
     {
-      section: 'section3',
+      section: sections[2],
       title: 'Timeline',
       rotation: 1,
       ref: useRef<HTMLDivElement>(null),
     },
     {
-      section: 'section4',
+      section: sections[3],
       title: 'Contact',
       rotation: -1,
       ref: useRef<HTMLDivElement>(null),
@@ -95,7 +96,7 @@ function NavBar() {
   // Font size transition from large to small
   const fontSize = useTransform(scrollYProgress, [0, 0.2], [`${18 * sizeScale}rem`, '1rem']);
   // Y Margin transition for the title
-  const marginYDiv = useTransform(scrollYProgress, [0, 0.2], ['18rem', '0rem']);
+  const marginYDiv = useTransform(scrollYProgress, [0, 0.2], ['16.75rem', '0.2rem']);
   // Anchor Gap
   const anchorGap = useTransform(scrollYProgress, [0, 0.2], [`${26 * gapScale}rem`, '1rem']);
   // Translate X to move the anchors right
@@ -118,7 +119,7 @@ function NavBar() {
     scrollYProgress,
     [0, 0.2],
     [`1080px`, `${heroHeight}px`]
-  )
+  );
 
   const rotationThreshold = 450;
 
@@ -177,13 +178,9 @@ function NavBar() {
 
   return (
     <div>
-      {/* <motion.div
-        className='absolute w-full h-[35rem] mb-[33rem]'
-      >
-      </motion.div> */}
-      <div className='fixed left-0 w-screen h-full'>
+      <div className='fixed left-0 w-screen h-full pointer-events-none'>
         <motion.div
-          className={`h-auto bg-[rgb(3,7,7)] z-50`}
+          className={`h-auto bg-[rgb(3,7,7)] z-50 pointer-events-auto`}
           style={{
             transition: 'all 0.3s ease-in-out',
           }}>
@@ -196,7 +193,7 @@ function NavBar() {
                   paddingTop: posYContainer
                   // marginTop: posYContainer
                 }}>
-                <Link to='hero' spy={true} smooth={true} duration={500}>
+                <Link to='hero' spy={true} smooth={true} duration={500} className='p-5 text-nowrap'>
                   Hi, I'm Daniel
                 </Link>
               </motion.div>
@@ -245,7 +242,9 @@ function NavBar() {
                         spy={true}
                         smooth={true}
                         offset={-500 * scrollOffsetScale}
-                        duration={500}>
+                        duration={500}
+                        className='p-5 text-nowrap'  
+                      >
                         {anchor.title}
                       </Link>
                     </motion.div>
