@@ -1,40 +1,12 @@
 import Section from './Section';
-import { sections } from '@/utils/sections';
 
 function Contact() {
   return (
-    <>
-      <Section id={sections[3]}>
-        SECTION 1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Placeat, deserunt hic. Vitae, quis. Quaerat sapiente ad pariatur id
-        quia esse, explicabo possimus mollitia quo rem ipsa! Nostrum numquam
-        debitis neque?
-      </Section>
-      <Section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-        deserunt hic. Vitae, quis. Quaerat sapiente ad pariatur id quia
-        esse, explicabo possimus mollitia quo rem ipsa! Nostrum numquam
-        debitis neque?
-      </Section>
-      <Section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-        deserunt hic. Vitae, quis. Quaerat sapiente ad pariatur id quia
-        esse, explicabo possimus mollitia quo rem ipsa! Nostrum numquam
-        debitis neque?
-      </Section>
-      <Section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-        deserunt hic. Vitae, quis. Quaerat sapiente ad pariatur id quia
-        esse, explicabo possimus mollitia quo rem ipsa! Nostrum numquam
-        debitis neque?
-      </Section>
-      <Section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-        deserunt hic. Vitae, quis. Quaerat sapiente ad pariatur id quia
-        esse, explicabo possimus mollitia quo rem ipsa! Nostrum numquam
-        debitis neque?
-      </Section>
-    </>
+    <Section idx={3}>
+        <div className='h-64 w-96 parent'>
+          <div className='h-12 w-full bg-slate-400 child'></div>
+        </div>
+    </Section>
   );
 }
 

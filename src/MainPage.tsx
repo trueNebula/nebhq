@@ -7,7 +7,7 @@ import { AboutMe, Work, Timeline, Contact } from '@/components/sections/index';
 function MainPage() {
   return (
     <>
-      <div className='flex flex-col justify-center items-center overflow-x-clip z-10' id={'hero'}>
+      <div className='flex flex-col justify-center overflow-x-clip z-10 relative' id={'hero'}>
         <NavBar />
         <Separator />
         <main>

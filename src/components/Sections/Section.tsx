@@ -1,16 +1,21 @@
-import { ReactNode } from 'react'
+import { sections, SectionType } from '@/src/utils/sections';
+import { ReactNode } from 'react';
 
 type SectionProps = {
-    id?: string,
-    children: ReactNode,
+  idx: number;
+  children: ReactNode;
 };
 
-function Section({ id, children }: SectionProps) {
-    return (
-        <section className='w-fit my-20 px-10' id={id}>
-            {children}
-        </section>
-    );
+function Section({ idx, children }: SectionProps) {
+  const section: SectionType = sections[idx];
+
+  return (
+    <section
+      className={`w-screen h-[64rem] flex items-center justify-center ${section.color}`}
+      id={section.id}>
+      {children}
+    </section>
+  );
 }
 
 export default Section;

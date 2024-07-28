@@ -84,9 +84,12 @@
 
 :root {
   --primary-color: rgb(248 250 252);
+  --bg-black: rgb(7,10,20);
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Fira Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -94,6 +97,10 @@ body {
   color: var(--primary-color);
   /* background: rgb(3,7,7); */
   scroll-behavior: smooth;
+}
+
+main {
+  z-index: -1;
 }
 
 @media only screen and (max-width: 810px) {
@@ -107,5 +114,10 @@ body {
 }
 
 .black {
-  background: rgb(3,7,7);
+  background: var(--bg-black);
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
 }

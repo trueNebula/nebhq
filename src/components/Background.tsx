@@ -12,7 +12,7 @@ function Background() {
           className={`${commonStyle + ' -z-10 black'}`}
           style={{ opacity }}
         ></motion.div>
-        <div className={`${commonStyle + ' -z-20 backdrop'}`}></div>
+        <div className={`${commonStyle + ' -z-20 black'}`}></div>
       </div>
     );
 }

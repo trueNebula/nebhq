@@ -9,8 +9,24 @@
     transparent 100%
   );
   background-position: center top;
-  background-size: 3vmin 3vmin;
+  background-size: 3.5vmin 3.5vmin;
   position: relative;
+}
+
+.navContainer::after {
+  position: absolute;
+  content: "";
+  width: 100vw;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  z-index: 3;
+  transition: background 0.5s ease-in-out;
+  background-color: var(--bg-black);
+}
+
+.navContainer:hover::after {
+  background-color: transparent;
 }
 
 .navContainer::before {
@@ -22,7 +38,7 @@
   content: "";
   width: 100vw;
   height: 100%;
-  z-index: 51;
+  z-index: 2;
   position: absolute;
   opacity: 0%;
   transition: 1s;
@@ -37,6 +53,6 @@
 }
 
 .navItems {
-  z-index: 60;
+  z-index: 4;
   position: relative;
 }
