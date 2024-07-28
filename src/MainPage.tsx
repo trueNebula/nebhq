@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
 import { AboutMe, Work, Timeline, Contact } from '@/components/sections/index';
+import SectionSeparator from './components/sections/SectionSeparator';
 
 function MainPage() {
   return (
@@ -12,6 +13,7 @@ function MainPage() {
         <Separator />
         <main>
           <AboutMe />
+          <SectionSeparator color='white' z={2} />
           <Work />
           <Timeline />
           <Contact />

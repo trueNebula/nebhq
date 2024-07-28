@@ -1,4 +1,5 @@
 import '@/styles/aboutMe.less';
+import '@/styles/sections.less';
 import Section from './Section';
 import { Link } from 'react-scroll';
 import { animated } from '@react-spring/web';
@@ -24,7 +25,7 @@ function AboutMe() {
   const [ downloadTrigger, downloadStyle ] = useBoopable({ rotate: 30 });
 
   return (
-    <Section idx={0}>
+    <Section idx={0} name='aboutMe'>
       <div className='card-underlay flex justify-center content-center'>
         <div className="card section-dark flex flex-col justify-center items-center gap-12">
         <div className="top-row flex justify-center items-center gap-16">

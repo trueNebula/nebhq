@@ -1,17 +1,19 @@
-import { sections, SectionType } from '@/src/utils/sections';
+import '@/styles/sections.less';
 import { ReactNode } from 'react';
+import { sections, SectionType } from '@/src/utils/sections';
 
 type SectionProps = {
+  name: string,
   idx: number;
   children: ReactNode;
 };
 
-function Section({ idx, children }: SectionProps) {
+function Section({ name = '', idx, children }: SectionProps) {
   const section: SectionType = sections[idx];
 
   return (
     <section
-      className={`w-screen h-[64rem] flex items-center justify-center ${section.color}`}
+      className={`relative w-screen h-[64rem] flex items-center justify-center ${name} ${section.color}`}
       id={section.id}>
       {children}
     </section>
