@@ -5,79 +5,79 @@
 @tailwind utilities;
 
 .fira-sans-regular {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .fira-sans-medium {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .fira-sans-semibold {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
 .fira-sans-bold {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .fira-sans-extrabold {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
 .fira-sans-black {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
 .fira-sans-regular-italic {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .fira-sans-medium-italic {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 500;
   font-style: italic;
 }
 
 .fira-sans-semibold-italic {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 600;
   font-style: italic;
 }
 
 .fira-sans-bold-italic {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .fira-sans-extrabold-italic {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 800;
   font-style: italic;
 }
 
 .fira-sans-black-italic {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 900;
   font-style: italic;
 }
 
 .hero-bold {
-  font-family: "Kanit", sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -90,7 +90,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 1rem;
@@ -120,4 +120,9 @@ main {
 img {
   pointer-events: none;
   user-select: none;
+}
+
+.-translate-y-3\/2 {
+  --tw-translate-y: -150%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }

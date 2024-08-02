@@ -19,23 +19,23 @@ type Anchor = {
   ref: RefObject<HTMLDivElement>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getElementRotation = (element: HTMLDivElement) => {
-  const computedStyle = window.getComputedStyle(element);
-  const transformationMatrix = computedStyle.transform;
+// // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// const getElementRotation = (element: HTMLDivElement) => {
+//   const computedStyle = window.getComputedStyle(element);
+//   const transformationMatrix = computedStyle.transform;
 
-  if (!transformationMatrix) return 0;
+//   if (!transformationMatrix) return 0;
 
-  const matrixValues = transformationMatrix
-    .split('(')[1]
-    .split(')')[0]
-    .split(',');
-  const scaleX = parseFloat(matrixValues[0]);
-  const skewY = parseFloat(matrixValues[1]);
-  const angle = Math.round(Math.atan2(skewY, scaleX) * (180 / Math.PI));
+//   const matrixValues = transformationMatrix
+//     .split('(')[1]
+//     .split(')')[0]
+//     .split(',');
+//   const scaleX = parseFloat(matrixValues[0]);
+//   const skewY = parseFloat(matrixValues[1]);
+//   const angle = Math.round(Math.atan2(skewY, scaleX) * (180 / Math.PI));
 
-  return angle;
-};
+//   return angle;
+// };
 
 function NavBar() {
   const { scrollYProgress } = useScroll();
@@ -195,29 +195,29 @@ function NavBar() {
 
   return (
     <div>
-      <div className="fixed left-0 w-screen h-full pointer-events-none">
+      <div className='fixed left-0 w-screen h-full pointer-events-none'>
         <motion.div
           className={`h-auto black z-1 pointer-events-auto`}
           style={{
             transition: 'all 0.3s ease-in-out',
           }}>
           <motion.div
-            className="h-auto navContainer navContainerColor"
+            className='h-auto navContainer navContainerColor'
             style={{ height: heroHeightTransform }}>
             {/* Hero */}
             <motion.div
-              className="hero-bold relative flex items-center cursor-pointer min-w-[75px] min-h-[75px] navItems pl-5"
+              className='hero-bold relative flex items-center cursor-pointer min-w-[75px] min-h-[75px] navItems pl-5'
               style={{
                 fontSize,
                 paddingTop: posYContainer,
                 // marginTop: posYContainer
               }}>
               <Link
-                to="hero"
+                to='hero'
                 spy={true}
                 smooth={true}
                 duration={SCROLL_SPEED}
-                className="p-5 text-nowrap">
+                className='p-5 text-nowrap'>
                 Hi, I'm Daniel
               </Link>
             </motion.div>
@@ -237,7 +237,7 @@ function NavBar() {
                   <motion.div
                     key={anchor.section}
                     ref={anchor.ref}
-                    className="mx-2 cursor-pointer h-[75px] w-[75px] flex justify-center items-center"
+                    className='mx-2 cursor-pointer h-[75px] w-[75px] flex justify-center items-center'
                     animate={
                       shouldPlayAnchorAnimation(anchor)
                         ? {
@@ -269,7 +269,7 @@ function NavBar() {
                       smooth={true}
                       offset={1 * scrollOffsetScale}
                       duration={SCROLL_SPEED}
-                      className="p-5 text-nowrap">
+                      className='p-5 text-nowrap'>
                       {anchor.title}
                     </Link>
                   </motion.div>

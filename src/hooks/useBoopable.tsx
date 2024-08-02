@@ -1,5 +1,5 @@
-import { useSpring } from "@react-spring/web";
-import { useCallback, useEffect, useState } from "react";
+import { useSpring } from '@react-spring/web';
+import { useCallback, useEffect, useState } from 'react';
 
 function useBoopable({
   x = 0,

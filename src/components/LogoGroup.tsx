@@ -14,7 +14,7 @@ type ImageGroupPropsType = {
 function LogoGroup({ images, offset }: ImageGroupPropsType) {
   const [ first, second ] = images;
   return (
-    <div className="logo-group">
+    <div className='logo-group'>
       <div className='logo-wrapper'>
         <motion.img
           src={first.path}

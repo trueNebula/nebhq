@@ -4,20 +4,19 @@ import Section from './Section';
 import { Link } from 'react-scroll';
 import { animated } from '@react-spring/web';
 import useBoopable from '@/src/hooks/useBoopable';
+import { SCROLL_SPEED } from '@/src/utils/globals';
 import LogoGroup, { LogoImageType } from '../LogoGroup';
 import { CaretDown, FileArrowDown } from '@phosphor-icons/react';
-import { SCROLL_SPEED } from '@/src/utils/globals';
 
 const logos: LogoImageType[] = [
-  { path: "/react_logo.png", alt: "React Logo" },
-  { path: "/nodejs.png", alt: "NodeJs Logo" },
-  { path: "/tailwindcss.png", alt: "Tailwind Logo" },
-  { path: "/python.png", alt: "Python Logo" },
-  { path: "/mongo.png", alt: "MongoDB Logo" },
-  { path: "/postgresql.png", alt: "PostgreSQL Logo" },
-  { path: "/nextjs.png", alt: "NextJs Logo" },
-  { path: "/meteor.png", alt: "MeteorJs Logo" },
-
+  { path: "/technologies/react_logo.png", alt: "React Logo" },
+  { path: "/technologies/nodejs.png", alt: "NodeJs Logo" },
+  { path: "/technologies/tailwindcss.png", alt: "Tailwind Logo" },
+  { path: "/technologies/python.png", alt: "Python Logo" },
+  { path: "/technologies/mongo.png", alt: "MongoDB Logo" },
+  { path: "/technologies/postgresql.png", alt: "PostgreSQL Logo" },
+  { path: "/technologies/nextjs.png", alt: "NextJs Logo" },
+  { path: "/technologies/meteor.png", alt: "MeteorJs Logo" },
 ]
 
 function AboutMe() {
@@ -30,7 +29,7 @@ function AboutMe() {
         <div className="card section-dark flex flex-col justify-center items-center gap-12">
         <div className="top-row flex justify-center items-center gap-16">
           <img
-            className="image w-64 aspect-square object-none object-top"
+            className="image w-64 aspect-square object-top"
             src="/about_me_image.jpg"
             alt="TODO: add some alt text here"
           />

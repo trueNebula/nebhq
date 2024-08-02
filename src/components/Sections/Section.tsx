@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { sections, SectionType } from '@/src/utils/sections';
 
 type SectionProps = {
-  name: string,
+  name?: string,
   idx: number;
   children: ReactNode;
 };
