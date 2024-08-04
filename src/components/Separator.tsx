@@ -1,7 +1,5 @@
 function Separator() {
-  return (
-    <div className='h-[60rem]'></div>
-  );
+  return <div className="h-[84rem]"></div>;
 }
 
 export default Separator;

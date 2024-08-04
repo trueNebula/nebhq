@@ -6,6 +6,8 @@ export const sections = [
 ];
 
 export type SectionType = {
-  id: string,
-  color: string,
-}
+  id: string;
+  color: string;
+};
+
+export const varHeightNames = ['timeline'];

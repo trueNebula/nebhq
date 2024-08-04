@@ -8,13 +8,25 @@ import SectionSeparator from './components/sections/SectionSeparator';
 function MainPage() {
   return (
     <>
-      <div className='flex flex-col justify-center overflow-x-clip z-10 relative' id={'hero'}>
+      <div
+        className="flex flex-col justify-center overflow-x-clip z-10 relative"
+        id={'hero'}>
         <NavBar />
         <Separator />
         <main>
           <AboutMe />
-          <SectionSeparator color='white' z={2} />
+          <SectionSeparator
+            color="purple"
+            scrollRange={[0.25, 0.45]}
+            transformRange={['0rem', '-64rem']}
+          />
           <Work />
+          <SectionSeparator
+            color="green"
+            scrollRange={[0.45, 0.54]}
+            transformRange={['100vw', '0vw']}
+            horizontal
+          />
           <Timeline />
           <Contact />
         </main>

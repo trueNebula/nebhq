@@ -13,7 +13,7 @@
   clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
   padding: 12rem;
   z-index: 1;
-  
+
   .top-row {
     flex: 1 0 auto;
 
@@ -52,16 +52,12 @@
     aspect-ratio: 3.5/1;
     background-color: rgb(16, 15, 19);
     border: 4px solid var(--primary-color);
-    background: linear-gradient(
-      rgb(16, 15, 19), 
-      rgb(16, 15, 19)
-    ) padding-box, linear-gradient(
-      115deg,
-      rgba(131,58,180,1) 0%, 
-      rgb(24, 166, 248) 50%, 
-      rgb(112, 252, 69) 100%
-    ) border-box;
-    margin: 1rem; 
+    background: linear-gradient(rgb(16, 15, 19),
+        rgb(16, 15, 19)) padding-box, linear-gradient(115deg,
+        var(--purple) 0%,
+        rgb(24, 166, 248) 50%,
+        var(--green) 100%) border-box;
+    margin: 1rem;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -73,15 +69,11 @@
   }
 
   .cv-download {
-    background: linear-gradient(
-      rgb(16, 15, 19), 
-      rgb(16, 15, 19)
-    ) padding-box, linear-gradient(
-      115deg,
-      rgba(131,58,180,1) 0%, 
-      rgba(253,29,29,1) 50%, 
-      rgb(252, 225, 69) 100%
-    ) border-box !important;
+    background: linear-gradient(rgb(16, 15, 19),
+        rgb(16, 15, 19)) padding-box, linear-gradient(115deg,
+        rgba(131, 58, 180, 1) 0%,
+        rgba(253, 29, 29, 1) 50%,
+        rgb(252, 225, 69) 100%) border-box !important;
   }
 
   a:hover {

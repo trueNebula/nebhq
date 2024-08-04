@@ -1,17 +1,42 @@
 import '@/styles/sections.less';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 
 type SectionSeparatorProps = {
-  color: string,
-  z: number,
+  color: string;
+  scrollRange: number[];
+  transformRange: string[];
+  horizontal?: boolean;
 };
 
-function SectionSeparator({ color, z = 0 }: SectionSeparatorProps) {
+function SectionSeparator({
+  color,
+  scrollRange,
+  transformRange,
+  horizontal,
+}: SectionSeparatorProps) {
   const { scrollYProgress } = useScroll();
-  const separatorPosition = useTransform(scrollYProgress, [0.25, 0.45], ['0rem', '-64rem']);
-  
+  const separatorPosition = useTransform(
+    scrollYProgress,
+    scrollRange,
+    transformRange
+  );
+  const style = horizontal
+    ? { x: separatorPosition, y: '-64rem', transition: 'ease-in-out' }
+    : { y: separatorPosition, transition: 'ease-in-out' };
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) =>
+    console.log(latest)
+  );
+
   return (
-    <motion.div className={`absolute inline-block w-full h-[64rem] separator-${color} z-[${z}]`} style={{ y: separatorPosition, transition: 'ease-in-out' }}></motion.div>
+    <motion.div
+      className={`absolute inline-block w-full h-[64rem] separator-${color}`}
+      style={style}></motion.div>
   );
 }
 
