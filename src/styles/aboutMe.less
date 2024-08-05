@@ -1,7 +1,5 @@
 .card-underlay {
   position: relative;
-  width: 75%;
-  height: 80%;
   z-index: 0;
   background-color: var(--primary-color);
   padding: 1rem;
@@ -78,5 +76,35 @@
 
   a:hover {
     border-color: transparent;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .card-underlay {
+    padding: 2px;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+
+  .card {
+    clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
+    padding: 2rem;
+
+    a {
+      font-size: 1.125rem;
+      border: 2px solid var(--primary-color);
+      padding: 1rem;
+      margin: 1rem 0.5rem;
+      text-wrap: nowrap;
+    }
+  }
+
+  .logo-group {
+    margin: 1rem 0 !important;
+  }
+
+  .bottom-row {
+    gap: 0 !important;
   }
 }

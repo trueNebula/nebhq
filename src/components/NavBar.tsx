@@ -43,36 +43,6 @@ function NavBar() {
   const isReducedMotion = useReducedMotion();
   const { width } = useWindowDimensions();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const anchors: Anchor[] = [
-    {
-      section: sections[0].id,
-      title: 'About Me',
-      rotation: 1,
-      offset: 0,
-      ref: useRef<HTMLDivElement>(null),
-    },
-    {
-      section: sections[1].id,
-      title: 'Work',
-      rotation: -1,
-      offset: 0,
-      ref: useRef<HTMLDivElement>(null),
-    },
-    {
-      section: sections[2].id,
-      title: 'Timeline',
-      rotation: 1,
-      offset: -50,
-      ref: useRef<HTMLDivElement>(null),
-    },
-    {
-      section: sections[3].id,
-      title: 'Contact',
-      rotation: -1,
-      offset: 0,
-      ref: useRef<HTMLDivElement>(null),
-    },
-  ];
 
   let mobileScreen = false;
   let sizeScale = 1;
@@ -82,6 +52,7 @@ function NavBar() {
   let scrollOffsetScale = 1;
   let heroHeight = 75;
   let disableMouseEffects = false;
+  let linkOffset = 0;
 
   if (isReducedMotion) {
     disableMouseEffects = false;
@@ -97,8 +68,39 @@ function NavBar() {
     scrollOffsetScale = 1 / 5;
     heroHeight = 85;
     disableMouseEffects = true;
+    linkOffset = -200;
   }
 
+  const anchors: Anchor[] = [
+    {
+      section: sections[0].id,
+      title: 'About Me',
+      rotation: 1,
+      offset: linkOffset,
+      ref: useRef<HTMLDivElement>(null),
+    },
+    {
+      section: sections[1].id,
+      title: 'Work',
+      rotation: -1,
+      offset: linkOffset,
+      ref: useRef<HTMLDivElement>(null),
+    },
+    {
+      section: sections[2].id,
+      title: 'Timeline',
+      rotation: 1,
+      offset: -50 + linkOffset,
+      ref: useRef<HTMLDivElement>(null),
+    },
+    {
+      section: sections[3].id,
+      title: 'Contact',
+      rotation: -1,
+      offset: linkOffset,
+      ref: useRef<HTMLDivElement>(null),
+    },
+  ];
   // Container Y position
   const posYContainer = useTransform(
     scrollYProgress,
