@@ -4,13 +4,11 @@
   height: 80%;
 }
 
-.work-cards-wrapper:hover >.work-card::after {
+.work-cards-wrapper:hover>.work-card::after {
   opacity: 1;
 }
 
 .work-card {
-  width: 32rem;
-  height: 26rem;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   position: relative;
@@ -35,6 +33,7 @@
       transition: 250ms;
       scale: 1.05;
       overflow: hidden;
+      object-fit: contain;
     }
   }
 }
@@ -43,24 +42,24 @@
   filter: blur(4px);
   scale: 1;
 }
-.work-card:hover::before {
+
+.work-card:hover::before .work-card {
   opacity: 1;
 }
 
 .work-card::before {
-  background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.09),
-    transparent 40%,
-  );
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.09),
+      transparent 40%,
+    );
   z-index: 3;
 }
+
 .work-card::after {
-  background: radial-gradient(
-    300px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.5),
-    transparent 40%,
-  );
+  background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.5),
+      transparent 40%,
+    );
   position: relative;
   z-index: 1;
 }
