@@ -19,18 +19,18 @@ const separatorRanges = [
 
 const separatorRangesMobile = [
   {
-    scrollRange: [0.35, 0.48],
+    scrollRange: [0.44, 0.51],
     transformRange: ['0rem', '-64rem'],
   },
   {
-    scrollRange: [0.6, 0.66],
+    scrollRange: [0.63, 0.7],
     transformRange: ['100vw', '0vw'],
   },
 ];
 
 function MainPage() {
-  const { isMobile } = useWindowDimensions();
-  const separators = isMobile ? separatorRangesMobile : separatorRanges;
+  const { isTablet } = useWindowDimensions();
+  const separators = isTablet ? separatorRangesMobile : separatorRanges;
 
   return (
     <>

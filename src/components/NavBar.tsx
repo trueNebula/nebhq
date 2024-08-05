@@ -41,7 +41,7 @@ type Anchor = {
 function NavBar() {
   const { scrollYProgress } = useScroll();
   const isReducedMotion = useReducedMotion();
-  const { isMobile } = useWindowDimensions();
+  const { isDesktop } = useWindowDimensions();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   let mobileScreen = false;
@@ -59,7 +59,7 @@ function NavBar() {
   }
 
   // Phone
-  if (isMobile) {
+  if (isDesktop) {
     mobileScreen = true;
     sizeScale = 0.25;
     gapScale = 0.05;
@@ -167,7 +167,7 @@ function NavBar() {
   const shouldPlayAnchorAnimation = (anchor: Anchor) => {
     if (!anchor.ref) return false;
     if (!anchor.ref.current) return false;
-    if (isMobile) return false;
+    if (isDesktop) return false;
     if (scrollYProgress.get() > 0) return false;
 
     const rect = anchor.ref.current.getBoundingClientRect();

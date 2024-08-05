@@ -37,13 +37,13 @@ function WorkCard({ cardInfo }: WorkCardProps) {
   return (
     <>
       <a
-        className="work-card w-[26rem] md:w-[32rem] h-[26rem]"
+        className="work-card w-[24rem] h-[24rem] lg:w-[32rem] lg:h-[26rem]"
         href={cardInfo.url}
         onClick={handleClick}>
         <div className="work-card-content">
           <img src={cardInfo.img} alt={cardInfo.alt} />
           <div className="absolute bottom-0 min-h-[10rem] flex flex-col flex-1 m-4">
-            <div className="text-3xl md:text-5xl font-bold">
+            <div className="text-3xl lg:text-5xl font-bold">
               {cardInfo.title}
             </div>
             <div className="pt-4 text-sm leading-6">{cardInfo.description}</div>

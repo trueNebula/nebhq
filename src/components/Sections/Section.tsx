@@ -11,8 +11,8 @@ type SectionProps = {
 
 function Section({ name = '', idx, children }: SectionProps) {
   const section: SectionType = sections[idx];
-  const { isMobile } = useWindowDimensions();
-  const isVarHeight = varHeightNames.includes(name) || isMobile;
+  const { isTablet } = useWindowDimensions();
+  const isVarHeight = varHeightNames.includes(name) || isTablet;
 
   return (
     <section

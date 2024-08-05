@@ -57,7 +57,7 @@ function Work() {
     <Section idx={1} name="work">
       <div
         id="work-cards-wrapper"
-        className="work-cards-wrapper my-32 w-[80%] md:w-[60%] flex flex-wrap gap-12 md:gap-2 justify-center items-center text-2xl">
+        className="work-cards-wrapper my-32 w-[80%] flex flex-wrap gap-12 lg:gap-2 justify-center items-center text-2xl">
         <WorkCard cardInfo={cards[0]} />
         <WorkCard cardInfo={cards[1]} />
         <WorkCard cardInfo={cards[2]} />

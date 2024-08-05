@@ -26,13 +26,13 @@ const logoGroupOffsetsMobile = [0, 1, 2, 3];
 function AboutMe() {
   const [linkTrigger, linkStyle] = useBoopable({ y: 7 });
   const [downloadTrigger, downloadStyle] = useBoopable({ rotate: 30 });
-  const { isMobile } = useWindowDimensions();
+  const { isTablet } = useWindowDimensions();
 
   let caretSize = 48;
   let fileArrowSize = 60;
   let groupOffsets = logoGroupOffsets;
 
-  if (isMobile) {
+  if (isTablet) {
     caretSize = 24;
     fileArrowSize = 24;
     groupOffsets = logoGroupOffsetsMobile;
@@ -40,15 +40,15 @@ function AboutMe() {
 
   return (
     <Section idx={0} name="aboutMe">
-      <div className="card-underlay w-[95%] md:w-[75%] h-full md:h-[80%] flex justify-center content-center">
+      <div className="card-underlay w-[95%] lg:w-[75%] h-full lg:h-[80%] flex justify-center content-center">
         <div className="card section-dark max-w-full flex flex-col justify-center items-center gap-12">
-          <div className="top-row flex-col md:flex-row flex justify-center items-center gap-16">
+          <div className="top-row flex-col lg:flex-row flex justify-center items-center gap-16">
             <img
               className="image w-64 aspect-square objectobject-top"
               src="/about_me_image.jpg"
               alt="TODO: add some alt text here"
             />
-            <div className="text-center md:text-left">
+            <div className="text-center lg:text-left">
               <div className="mb-3 text-5xl">Hi there!</div>
               <div className="text-2xl">
                 I'm a junior fullstack developer specialising in React, NodeJs
