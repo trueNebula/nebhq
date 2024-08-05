@@ -2,7 +2,7 @@
   height: 85px;
 }
 
-.navContainer{
+.navContainer {
   background: radial-gradient(
     rgba(255, 255, 255, 0.2) calc(8% - 0.1vmin),
     transparent calc(8% + 0.1vmin),
@@ -55,4 +55,10 @@
 .navItems {
   z-index: 4;
   position: relative;
+}
+
+@media only screen and (max-width: 768) {
+  .navContainer::after {
+    background-color: transparent !important;
+  }
 }

@@ -11,12 +11,12 @@ type SectionProps = {
 
 function Section({ name = '', idx, children }: SectionProps) {
   const section: SectionType = sections[idx];
-  const { width } = useWindowDimensions();
-  const isVarHeight = varHeightNames.includes(name) || width <= 768;
+  const { isMobile } = useWindowDimensions();
+  const isVarHeight = varHeightNames.includes(name) || isMobile;
 
   return (
     <section
-      className={`relative w-screen ${
+      className={`relative block w-screen ${
         isVarHeight ? 'h-full' : 'h-[64rem]'
       } flex items-center justify-center ${name} ${section.color}`}
       id={section.id}>

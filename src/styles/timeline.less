@@ -1,11 +1,7 @@
 .timeline-wrapper {
   position: relative;
-  width: 50%;
-  height: 80%;
 
   .timeline-element {
-    width: 100%;
-    height: 20%;
     z-index: 1;
 
     // background-color: greenyellow;
@@ -48,6 +44,12 @@
       z-index: -1;
       top: 0;
       left: calc(5% - 4px);
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline-connector {
+        left: calc(10% - 7px);
+      }
     }
   }
 }

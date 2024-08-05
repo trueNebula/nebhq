@@ -8,14 +8,18 @@ function useWindowDimensions() {
   const getWindowDimensions = useCallback(() => {
     const width = hasWindow ? window.innerWidth : 0;
     const height = hasWindow ? window.innerHeight : 0;
-    
+
     return {
       width,
-      height
+      height,
+      isMobile: width <= 768,
+      isTalet: width <= 992,
     };
-  }, [hasWindow]); 
+  }, [hasWindow]);
 
-  const [ windowDimensions, setWindowDimensions ] = useState(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
   useEffect(() => {
     if (hasWindow) {
       const handleResize = () => {
@@ -26,7 +30,7 @@ function useWindowDimensions() {
 
       return () => {
         window.removeEventListener('resize', handleResize);
-      }
+      };
     }
   }, [hasWindow, getWindowDimensions]);
 

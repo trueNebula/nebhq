@@ -4,8 +4,34 @@ import Separator from '@/components/Separator';
 import Background from '@/components/Background';
 import { AboutMe, Work, Timeline, Contact } from '@/components/sections/index';
 import SectionSeparator from './components/sections/SectionSeparator';
+import useWindowDimensions from './hooks/useWindowDimensions';
+
+const separatorRanges = [
+  {
+    scrollRange: [0.25, 0.45],
+    transformRange: ['0rem', '-64rem'],
+  },
+  {
+    scrollRange: [0.45, 0.54],
+    transformRange: ['100vw', '0vw'],
+  },
+];
+
+const separatorRangesMobile = [
+  {
+    scrollRange: [0.35, 0.48],
+    transformRange: ['0rem', '-64rem'],
+  },
+  {
+    scrollRange: [0.6, 0.66],
+    transformRange: ['100vw', '0vw'],
+  },
+];
 
 function MainPage() {
+  const { isMobile } = useWindowDimensions();
+  const separators = isMobile ? separatorRangesMobile : separatorRanges;
+
   return (
     <>
       <div
@@ -17,14 +43,14 @@ function MainPage() {
           <AboutMe />
           <SectionSeparator
             color="purple"
-            scrollRange={[0.25, 0.45]}
-            transformRange={['0rem', '-64rem']}
+            scrollRange={separators[0].scrollRange}
+            transformRange={separators[0].transformRange}
           />
           <Work />
           <SectionSeparator
             color="green"
-            scrollRange={[0.45, 0.54]}
-            transformRange={['100vw', '0vw']}
+            scrollRange={separators[1].scrollRange}
+            transformRange={separatorRanges[1].transformRange}
             horizontal
           />
           <Timeline />

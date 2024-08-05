@@ -11,7 +11,7 @@ type TmelineWrapperProps = {
 // eslint-disable-next-line react-refresh/only-export-components
 export function TimelineWrapper({ children }: TmelineWrapperProps) {
   return (
-    <div className="timeline-wrapper flex flex-col px-12 py-20 gap-20">
+    <div className="timeline-wrapper w-[90%] md:w-1/2 h-4/5 flex flex-col px-12 py-20 gap-20">
       {children}
     </div>
   );
@@ -34,7 +34,7 @@ export function TimelineElement({
 }: TimelineElementProps) {
   return (
     <>
-      <div className="timeline-element relative flex flex-row gap-8 justify-center items-start">
+      <div className="timeline-element w-full h-1/5 relative flex flex-row gap-8 justify-center items-start">
         <TimelineElementDate icon={icon} />
         <TimelineElementBox title={title} date={date}>
           {children}
@@ -74,7 +74,7 @@ function TimelineElementDate({ icon }: TimelineElementDateProps) {
     <animated.div
       onMouseEnter={trigger}
       style={style}
-      className="timeline-date relative w-[10%] aspect-square rounded-full flex justify-center items-center text-center font-bold text-xl">
+      className="timeline-date relative w-1/5 md:w-[10%] aspect-square rounded-full flex justify-center items-center text-center font-bold text-xl">
       {
         timelineDateIcons.filter((obj) => {
           return obj.name === icon;

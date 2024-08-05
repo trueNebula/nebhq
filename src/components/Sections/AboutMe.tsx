@@ -20,17 +20,22 @@ const logos: LogoImageType[] = [
   { path: '/technologies/meteor.png', alt: 'MeteorJs Logo' },
 ];
 
+const logoGroupOffsets = [0, 1.2, 2.45, 1.75];
+const logoGroupOffsetsMobile = [0, 1, 2, 3];
+
 function AboutMe() {
   const [linkTrigger, linkStyle] = useBoopable({ y: 7 });
   const [downloadTrigger, downloadStyle] = useBoopable({ rotate: 30 });
-  const { width } = useWindowDimensions();
+  const { isMobile } = useWindowDimensions();
 
   let caretSize = 48;
   let fileArrowSize = 60;
+  let groupOffsets = logoGroupOffsets;
 
-  if (width <= 768) {
+  if (isMobile) {
     caretSize = 24;
     fileArrowSize = 24;
+    groupOffsets = logoGroupOffsetsMobile;
   }
 
   return (
@@ -58,10 +63,22 @@ function AboutMe() {
               <br />I work fairly often with technologies such as:
             </div>
             <div className="flex gap-4 justify-center flex-wrap">
-              <LogoGroup images={[logos[0], logos[1]]} offset={0} />
-              <LogoGroup images={[logos[2], logos[3]]} offset={1.2} />
-              <LogoGroup images={[logos[4], logos[5]]} offset={2.45} />
-              <LogoGroup images={[logos[6], logos[7]]} offset={1.75} />
+              <LogoGroup
+                images={[logos[0], logos[1]]}
+                offset={groupOffsets[0]}
+              />
+              <LogoGroup
+                images={[logos[2], logos[3]]}
+                offset={groupOffsets[1]}
+              />
+              <LogoGroup
+                images={[logos[4], logos[5]]}
+                offset={groupOffsets[2]}
+              />
+              <LogoGroup
+                images={[logos[6], logos[7]]}
+                offset={groupOffsets[3]}
+              />
             </div>
             <div>Welcome to my portfolio website!</div>
             <div className="bottom-row flex justify-center items-center gap-16">
