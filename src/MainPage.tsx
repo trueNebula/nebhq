@@ -2,12 +2,10 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
-import {
-  AboutMe,
-  Work,
-  Timeline,
-  Contact,
-} from '@/components/sections/index.tsx';
+import AboutMe from '@/components/sections/AboutMe.tsx';
+import Work from '@/components/sections/Work.tsx';
+import Timeline from '@/components/sections/Timeline';
+import Contact from '@/components/sections/Contact.tsx';
 import SectionSeparator from '@/components/sections/SectionSeparator.tsx';
 import useWindowDimensions from '@/hooks/useWindowDimensions.tsx';
 
