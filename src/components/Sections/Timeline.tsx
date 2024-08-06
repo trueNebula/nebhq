@@ -2,7 +2,7 @@ import Section from './Section';
 import {
   TimelineElement,
   TimelineWrapper,
-} from '@/src/components/TimelineBuilder.tsx';
+} from '@/components/TimelineBuilder.tsx';
 
 function Timeline() {
   return (

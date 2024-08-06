@@ -3,11 +3,11 @@ import '@/styles/sections.less';
 import Section from '@/components/sections/Section.tsx';
 import { Link } from 'react-scroll';
 import { animated } from '@react-spring/web';
-import useBoopable from '@/src/hooks/useBoopable';
-import { SCROLL_SPEED } from '@/src/utils/globals';
+import useBoopable from '@/hooks/useBoopable';
+import { SCROLL_SPEED } from '@/utils/globals';
 import LogoGroup, { LogoImageType } from '@/components/LogoGroup.tsx';
 import { CaretDown, FileArrowDown } from '@phosphor-icons/react';
-import useWindowDimensions from '@/src/hooks/useWindowDimensions';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 const logos: LogoImageType[] = [
   { path: 'technologies/react_logo.png', alt: 'React Logo' },

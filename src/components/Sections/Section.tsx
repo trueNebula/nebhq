@@ -1,7 +1,7 @@
 import '@/styles/sections.less';
 import { ReactNode } from 'react';
-import { varHeightNames, sections, SectionType } from '@/src/utils/sections';
-import useWindowDimensions from '@/src/hooks/useWindowDimensions';
+import { varHeightNames, sections, SectionType } from '@/utils/sections';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 type SectionProps = {
   name?: string;
