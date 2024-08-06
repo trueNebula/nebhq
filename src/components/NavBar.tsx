@@ -212,8 +212,10 @@ function NavBar() {
     target.style.setProperty('--mouse-y', `${y}px`);
   };
 
-  for (const nav of document.querySelectorAll('.navContainer')) {
-    (nav as HTMLElement).onmousemove = (event) => handleMouseMoveGlow(event);
+  if (!disableMouseEffects) {
+    for (const nav of document.querySelectorAll('.navContainer')) {
+      (nav as HTMLElement).onmousemove = (event) => handleMouseMoveGlow(event);
+    }
   }
 
   return (
