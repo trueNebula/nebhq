@@ -2,12 +2,9 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
-import AboutMe from '@/components/sections/AboutMe';
-import Work from '@/components/sections/Work';
-import Timeline from '@/components/sections/Timeline';
-import Contact from '@/components/sections/Contact';
 import SectionSeparator from '@/components/sections/SectionSeparator';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
+import { AboutMe, Contact, Timeline, Work } from '@/components/sections/index';
 
 const separatorRanges = [
   {
