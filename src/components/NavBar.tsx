@@ -49,6 +49,7 @@ function NavBar() {
   let gapScale = 1;
   let gapEnd = 1;
   let xTransformScale = 1;
+  let xTransformScaleStart = 1;
   let yTransformScale = 1;
   let scrollOffsetScale = 1;
   let heroHeight = 75;
@@ -68,13 +69,14 @@ function NavBar() {
     sizeScale = 0.2;
     gapScale = 0.02;
     gapEnd = 26 * gapScale;
-    xTransformScale = 11 / 10;
-    yTransformScale = 7.6 / 6;
+    xTransformScale = 9.6 / 10;
+    xTransformScaleStart = 0;
+    yTransformScale = 7.65 / 6;
     scrollOffsetScale = 1 / 5;
     heroHeight = 85;
     disableMouseEffects = true;
     linkOffset = -200;
-    anchorWidthEnd = 60;
+    anchorWidthEnd = 40;
     anchorEasingX = cubicBezier(0, 0.17, 0.77, 1);
     anchorEasingY = cubicBezier(0.69, 0.33, 0.69, 0.33);
   }
@@ -137,7 +139,7 @@ function NavBar() {
   const translateXAnchor = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`${2 * xTransformScale}rem`, `${10 * xTransformScale}rem`],
+    [`${2 * xTransformScaleStart}rem`, `${10 * xTransformScale}rem`],
     { ease: anchorEasingX }
   );
   // Translate Y to move anchors up

@@ -23,7 +23,7 @@ const separatorRangesMobile = [
     transformRange: ['0rem', '-64rem'],
   },
   {
-    scrollRange: [0.59, 0.63],
+    scrollRange: [0.55, 0.6],
     transformRange: ['100vw', '0vw'],
   },
 ];
