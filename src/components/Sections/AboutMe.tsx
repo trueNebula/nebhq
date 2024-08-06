@@ -10,14 +10,14 @@ import { CaretDown, FileArrowDown } from '@phosphor-icons/react';
 import useWindowDimensions from '@/src/hooks/useWindowDimensions';
 
 const logos: LogoImageType[] = [
-  { path: '/technologies/react_logo.png', alt: 'React Logo' },
-  { path: '/technologies/nodejs.png', alt: 'NodeJs Logo' },
-  { path: '/technologies/tailwindcss.png', alt: 'Tailwind Logo' },
-  { path: '/technologies/python.png', alt: 'Python Logo' },
-  { path: '/technologies/mongo.png', alt: 'MongoDB Logo' },
-  { path: '/technologies/postgresql.png', alt: 'PostgreSQL Logo' },
-  { path: '/technologies/nextjs.png', alt: 'NextJs Logo' },
-  { path: '/technologies/meteor.png', alt: 'MeteorJs Logo' },
+  { path: 'technologies/react_logo.png', alt: 'React Logo' },
+  { path: 'technologies/nodejs.png', alt: 'NodeJs Logo' },
+  { path: 'technologies/tailwindcss.png', alt: 'Tailwind Logo' },
+  { path: 'technologies/python.png', alt: 'Python Logo' },
+  { path: 'technologies/mongo.png', alt: 'MongoDB Logo' },
+  { path: 'technologies/postgresql.png', alt: 'PostgreSQL Logo' },
+  { path: 'technologies/nextjs.png', alt: 'NextJs Logo' },
+  { path: 'technologies/meteor.png', alt: 'MeteorJs Logo' },
 ];
 
 const logoGroupOffsets = [0, 1.2, 2.45, 1.75];
@@ -45,7 +45,7 @@ function AboutMe() {
           <div className="top-row flex-col lg:flex-row flex justify-center items-center gap-16">
             <img
               className="image w-64 aspect-square objectobject-top"
-              src="/about_me_image.jpg"
+              src="about_me_image.jpg"
               alt="TODO: add some alt text here"
             />
             <div className="text-center lg:text-left">

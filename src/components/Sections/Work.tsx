@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 const cards: WorkCardInfo[] = [
   {
-    img: '/work/airportlabs.jpg',
+    img: 'work/airportlabs.jpg',
     alt: 'AirportLabs logo over a background image of a grounded plane at an airport during the night.',
     title: 'AirportLabs',
     description:
@@ -13,7 +13,7 @@ const cards: WorkCardInfo[] = [
     url: 'https://www.airportlabs.com/',
   },
   {
-    img: '/work/jevc.jpg',
+    img: 'work/jevc.jpg',
     alt: 'J.EVC logo over a blurred image of its Java source code.',
     title: 'J.EVC',
     description:
@@ -21,7 +21,7 @@ const cards: WorkCardInfo[] = [
     url: 'https://github.com/trueNebula/J.EVC',
   },
   {
-    img: '/work/budgetlog.jpg',
+    img: 'work/budgetlog.jpg',
     alt: 'An image of the design skeleton made for BudgetLog in Figma.',
     title: 'BudgetLog',
     description:
@@ -29,7 +29,7 @@ const cards: WorkCardInfo[] = [
     url: '',
   },
   {
-    img: '/work/github.jpg',
+    img: 'work/github.jpg',
     alt: 'An image of the @trueNebula profile on GitHub.',
     title: 'More coming soon...',
     description:

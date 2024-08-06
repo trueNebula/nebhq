@@ -4,10 +4,11 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths({loose: true})],
+  plugins: [react(), tsconfigPaths({ loose: true })],
   server: {
     port: 3000,
   },
+  base: './',
   resolve: {
     alias: [
       { find: '@/src', replacement: '/src' },
