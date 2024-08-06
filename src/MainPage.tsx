@@ -2,8 +2,8 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
-import SectionSeparator from '@/components/sections/SectionSeparator';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
+import SectionSeparator from '@/components/sections/SectionSeparator';
 import { AboutMe, Contact, Timeline, Work } from '@/components/sections/index';
 
 const separatorRanges = [
