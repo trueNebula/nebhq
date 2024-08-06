@@ -13,22 +13,23 @@
   position: relative;
 }
 
-.navContainer::after {
-  position: absolute;
-  content: '';
-  width: 100vw;
-  height: 100%;
-  top: 0%;
-  left: 0%;
-  z-index: 3;
-  transition: background 0.5s ease-in-out;
-  background-color: var(--bg-black);
-}
+@media all and (hover: hover) {
+  .navContainer::after {
+    position: absolute;
+    content: '';
+    width: 100vw;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    transition: background 0.5s ease-in-out;
+    background-color: var(--bg-black);
+  }
 
-.navContainer:hover::after {
-  background-color: transparent;
+  .navContainer:hover::after {
+    background-color: transparent;
+  }
 }
-
 .navContainer::before {
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
