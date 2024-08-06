@@ -1,6 +1,6 @@
 import '@/styles/work.less';
-import Section from './Section';
-import WorkCard, { WorkCardInfo } from '../WorkCard';
+import Section from '@/components/sections/Section';
+import WorkCard, { WorkCardInfo } from '@/components/WorkCard';
 import { useEffect } from 'react';
 
 const cards: WorkCardInfo[] = [

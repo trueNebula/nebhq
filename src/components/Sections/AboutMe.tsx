@@ -1,11 +1,11 @@
 import '@/styles/aboutMe.less';
 import '@/styles/sections.less';
-import Section from './Section';
+import Section from '@/components/sections/Section.tsx';
 import { Link } from 'react-scroll';
 import { animated } from '@react-spring/web';
 import useBoopable from '@/src/hooks/useBoopable';
 import { SCROLL_SPEED } from '@/src/utils/globals';
-import LogoGroup, { LogoImageType } from '../LogoGroup';
+import LogoGroup, { LogoImageType } from '@/components/LogoGroup.tsx';
 import { CaretDown, FileArrowDown } from '@phosphor-icons/react';
 import useWindowDimensions from '@/src/hooks/useWindowDimensions';
 

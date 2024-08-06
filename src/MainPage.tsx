@@ -3,8 +3,8 @@ import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
 import { AboutMe, Work, Timeline, Contact } from '@/components/sections/index';
-import SectionSeparator from './components/sections/SectionSeparator';
-import useWindowDimensions from './hooks/useWindowDimensions';
+import SectionSeparator from '@/components/sections/SectionSeparator';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 const separatorRanges = [
   {
