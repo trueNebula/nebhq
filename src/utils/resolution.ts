@@ -85,7 +85,7 @@ const smallDestop = {
   disableMouseEffects: true,
   linkOffset: -200,
   anchorWidthEnd: 60,
-  anchorMargin: 10.75,
+  anchorMargin: 4.75,
   anchorEasingX: cubicBezier(0, 0.17, 0.77, 1),
   anchorEasingY: cubicBezier(0.69, 0.33, 0.69, 0.33),
 }
