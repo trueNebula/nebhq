@@ -10,14 +10,14 @@ type SectionProps = {
 };
 
 function Section({ name = '', idx, children }: SectionProps) {
+  const { isMobile } = useWindowDimensions();
   const section: SectionType = sections[idx];
-  const { isTablet } = useWindowDimensions();
-  const isVarHeight = varHeightNames.includes(name) || isTablet;
+  const isVarHeight = varHeightNames.includes(name) || isMobile;
 
   return (
     <section
       className={`relative block w-screen ${
-        isVarHeight ? 'h-full' : 'h-[64rem]'
+        isVarHeight ? 'h-fit' : 'h-[84rem] md:h-[64rem]'
       } flex items-center justify-center ${name} ${section.color}`}
       id={section.id}>
       {children}

@@ -106,7 +106,6 @@ body {
   font-style: normal;
   font-size: 1rem;
   color: var(--primary-color);
-  /* background: rgb(3,7,7); */
   scroll-behavior: smooth;
 }
 
@@ -114,7 +113,19 @@ main {
   z-index: -1;
 }
 
-@media only screen and (max-width: 810px) {
+/* @media only screen and (min-width: 1024px) {
+  .separator {
+    height: calc(100vh + 48rem);
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .separator {
+    height: 108rem;
+  }
+} */
+
+@media only screen and (max-width: 767px) {
   :root {
     font-size: 12px;
   }
@@ -143,4 +154,36 @@ img {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y))
     rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/*==== FHD/UHD (6:9) Responsive Support ====*/
+@media screen and (min-width: 1800px) {
+  body,
+  html {
+    font-size: 1.6vh;
+  }
+}
+
+/*==== FHD/2K (4:3) Responsive Support ====*/
+@media screen and (min-width: 1900px) and (min-height: 1400px) {
+  body,
+  html {
+    font-size: 1.5vh;
+  }
+}
+
+/*==== FHD/2K (5:3) Responsive Support ====*/
+@media screen and (min-width: 1900px) and (min-height: 2000px) {
+  body,
+  html {
+    font-size: 1.25vh;
+  }
+}
+
+/*==== 2K/4K (6:9) Responsive Support ====*/
+@media screen and (min-width: 1990px) {
+  body,
+  html {
+    font-size: 2vh;
+  }
 }

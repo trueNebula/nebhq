@@ -30,10 +30,10 @@
     .timeline-box::before {
       content: '';
       position: absolute;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid var(--timeline-white);
-      left: -10px;
+      border-top: max(1vw, 10px) solid transparent;
+      border-bottom: max(1vw, 10px) solid transparent;
+      border-right: max(1vw, 10px) solid var(--timeline-white);
+      left: -0.68rem;
       top: 2rem;
     }
 
@@ -46,15 +46,21 @@
       left: calc(5% - 4px);
     }
 
-    @media screen and (max-width: 1024px) {
+    @media only screen and (min-width: 2560px) {
       .timeline-connector {
-        left: calc(10% - 7px);
+        border: 8px solid var(--timeline-white);
+        left: calc(5% - 12px);
+
       }
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 767px) {
       .timeline-box::before {
         top: 1rem;
+      }
+
+      .timeline-connector {
+        left: calc(10% - 4px);
       }
     }
   }

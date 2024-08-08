@@ -37,7 +37,7 @@ function WorkCard({ cardInfo }: WorkCardProps) {
   return (
     <>
       <a
-        className="work-card w-[24rem] h-[24rem] lg:w-[32rem] lg:h-[26rem]"
+        className="work-card w-[24rem] h-[24rem] 2xl:w-[34rem] 2xl:h-[26rem]"
         href={cardInfo.url}
         onClick={handleClick}>
         <div className="work-card-content">
@@ -46,7 +46,9 @@ function WorkCard({ cardInfo }: WorkCardProps) {
             <div className="text-3xl lg:text-5xl font-bold">
               {cardInfo.title}
             </div>
-            <div className="pt-4 text-sm leading-6">{cardInfo.description}</div>
+            <div className="pt-4 text-sm 2xl:text-base leading-6">
+              {cardInfo.description}
+            </div>
           </div>
         </div>
         <motion.div

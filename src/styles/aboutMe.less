@@ -32,12 +32,12 @@
 
     .logo-wrapper {
       position: relative;
-      width: 12rem;
+      width: max(12vw, 8rem);
       height: 6rem;
 
       img {
         border-radius: 16px;
-        width: 12rem;
+        width: 100%;
         aspect-ratio: 2/1;
         display: inline;
         position: absolute;
@@ -47,7 +47,7 @@
 
   a {
     width: 22rem;
-    aspect-ratio: 3.5/1;
+    aspect-ratio: 4/1;
     background-color: rgb(16, 15, 19);
     border: 4px solid var(--primary-color);
     background: linear-gradient(rgb(16, 15, 19),
@@ -79,8 +79,56 @@
   }
 }
 
+@media only screen and (min-width: 2560px) {
+  .card {
+    a {
+      border: 6px solid var(--primary-color);
+    }
+  }
 
-@media only screen and (max-width: 1024px) {
+  .logo-wrapper {
+    img {
+      border-radius: 20px !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 3840px) {
+  .card {
+    a {
+      border: 8px solid var(--primary-color);
+    }
+  }
+
+  .logo-wrapper {
+    img {
+      border-radius: 32px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .card-underlay {
+    padding: 0.5rem;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+
+  .card {
+    clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
+    padding: 2rem;
+  }
+
+  .logo-group {
+    margin: 1rem 0 !important;
+  }
+
+  .bottom-row {
+    gap: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .card-underlay {
     padding: 2px;
     margin-top: 5rem;
@@ -106,5 +154,12 @@
 
   .bottom-row {
     gap: 0 !important;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  img {
+    border-radius: 4px;
   }
 }

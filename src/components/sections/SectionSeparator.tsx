@@ -29,9 +29,9 @@ function SectionSeparator({
     ? { x: separatorPosition, y: '-64rem', transition: 'ease-in-out' }
     : { y: separatorPosition, transition: 'ease-in-out' };
 
-  useMotionValueEvent(scrollYProgress, 'change', (latest) =>
-    console.log(latest)
-  );
+  // useMotionValueEvent(scrollYProgress, 'change', (latest) =>
+  //   console.log(latest)
+  // );
 
   return (
     <motion.div

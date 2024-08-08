@@ -1,16 +1,16 @@
 import '@/styles/navBar.css';
 import { Link } from 'react-scroll';
 import { sections } from '@/utils/sections';
+import { settings } from '../utils/resolution';
+import { SCROLL_SPEED } from '../utils/globals';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import {
-  cubicBezier,
   motion,
   useReducedMotion,
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { SCROLL_SPEED } from '../utils/globals';
 
 type Anchor = {
   section: string;
@@ -41,44 +41,13 @@ type Anchor = {
 function NavBar() {
   const { scrollYProgress } = useScroll();
   const isReducedMotion = useReducedMotion();
-  const { isTablet } = useWindowDimensions();
+  const { height, resolution, canHover } = useWindowDimensions();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  let mobileScreen = false;
-  let sizeScale = 1;
-  let gapScale = 1;
-  let gapEnd = 1;
-  let xTransformScale = 1;
-  let xTransformScaleStart = 1;
-  let yTransformScale = 1;
-  let scrollOffsetScale = 1;
-  let heroHeight = 75;
-  let disableMouseEffects = false;
-  let linkOffset = 0;
-  let anchorWidthEnd = 75;
-  let anchorEasingX = cubicBezier(0, 0.33, 0.33, 1);
-  let anchorEasingY = cubicBezier(0.69, 0.33, 1, 0.3);
+  console.log(resolution);
+  const animSettings = settings[resolution];
 
   if (isReducedMotion) {
-    disableMouseEffects = false;
-  }
-
-  // Phone
-  if (isTablet) {
-    mobileScreen = true;
-    sizeScale = 0.2;
-    gapScale = 0.02;
-    gapEnd = 26 * gapScale;
-    xTransformScale = 9.6 / 10;
-    xTransformScaleStart = 0;
-    yTransformScale = 7.65 / 6;
-    scrollOffsetScale = 1 / 5;
-    heroHeight = 85;
-    disableMouseEffects = true;
-    linkOffset = -200;
-    anchorWidthEnd = 40;
-    anchorEasingX = cubicBezier(0, 0.17, 0.77, 1);
-    anchorEasingY = cubicBezier(0.69, 0.33, 0.69, 0.33);
+    animSettings.disableMouseEffects = false;
   }
 
   const anchors: Anchor[] = [
@@ -86,28 +55,28 @@ function NavBar() {
       section: sections[0].id,
       title: 'About Me',
       rotation: 1,
-      offset: linkOffset,
+      offset: animSettings.linkOffset,
       ref: useRef<HTMLDivElement>(null),
     },
     {
       section: sections[1].id,
       title: 'Work',
       rotation: -1,
-      offset: linkOffset,
+      offset: animSettings.linkOffset,
       ref: useRef<HTMLDivElement>(null),
     },
     {
       section: sections[2].id,
       title: 'Timeline',
       rotation: 1,
-      offset: -50 + linkOffset,
+      offset: -50 + animSettings.linkOffset,
       ref: useRef<HTMLDivElement>(null),
     },
     {
       section: sections[3].id,
       title: 'Contact',
       rotation: -1,
-      offset: linkOffset,
+      offset: animSettings.linkOffset,
       ref: useRef<HTMLDivElement>(null),
     },
   ];
@@ -121,45 +90,48 @@ function NavBar() {
   const fontSize = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`${18 * sizeScale}rem`, '1rem']
+    [`${18 * animSettings.sizeScale}rem`, '1rem']
   );
   // Y Margin transition for the title
   const marginYDiv = useTransform(
     scrollYProgress,
     [0, 0.2],
-    ['16.75rem', '0.2rem']
+    [`${animSettings.anchorMargin}rem`, '0.2rem']
   );
   // Anchor Gap
   const anchorGap = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`${26 * gapScale}rem`, `${gapEnd}rem`]
+    [`${26 * animSettings.gapScale}rem`, `${animSettings.gapEnd}rem`]
   );
   // Translate X to move the anchors right
   const translateXAnchor = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`${2 * xTransformScaleStart}rem`, `${10 * xTransformScale}rem`],
-    { ease: anchorEasingX }
+    [
+      `${2 * animSettings.xTransformScaleStart}rem`,
+      `${10 * animSettings.xTransformScale}rem`,
+    ],
+    { ease: animSettings.anchorEasingX }
   );
   // Translate Y to move anchors up
   const translateYAnchor = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`0rem`, `${-6 * yTransformScale}rem`],
-    { ease: anchorEasingY }
+    [`0rem`, `${-6 * animSettings.yTransformScale}rem`],
+    { ease: animSettings.anchorEasingY }
   );
 
   const heroHeightTransform = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`1080px`, `${heroHeight}px`]
+    [`${height}px`, `${animSettings.heroHeight}px`]
   );
 
   const anchorWidth = useTransform(
     scrollYProgress,
     [0, 0.2],
-    ['75px', `${anchorWidthEnd}px`]
+    ['75px', `${animSettings.anchorWidthEnd}px`]
   );
 
   const rotationThreshold = 640;
@@ -169,21 +141,21 @@ function NavBar() {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
 
-    if (!disableMouseEffects) {
+    if (!animSettings.disableMouseEffects) {
       window.addEventListener('mousemove', handleMouseMove);
     }
 
     return () => {
-      if (!disableMouseEffects) {
+      if (!animSettings.disableMouseEffects) {
         window.removeEventListener('mousemove', handleMouseMove);
       }
     };
-  }, [disableMouseEffects]);
+  }, [animSettings.disableMouseEffects]);
 
   const shouldPlayAnchorAnimation = (anchor: Anchor) => {
     if (!anchor.ref) return false;
     if (!anchor.ref.current) return false;
-    if (isTablet) return false;
+    if (!canHover) return false;
     if (scrollYProgress.get() > 0) return false;
 
     const rect = anchor.ref.current.getBoundingClientRect();
@@ -212,7 +184,7 @@ function NavBar() {
     target.style.setProperty('--mouse-y', `${y}px`);
   };
 
-  if (!disableMouseEffects) {
+  if (!animSettings.disableMouseEffects) {
     for (const nav of document.querySelectorAll('.navContainer')) {
       (nav as HTMLElement).onmousemove = (event) => handleMouseMoveGlow(event);
     }
@@ -227,7 +199,7 @@ function NavBar() {
             transition: 'all 0.3s ease-in-out',
           }}>
           <motion.div
-            className="h-auto navContainer navContainerColor"
+            className="h-auto navContainer"
             style={{ height: heroHeightTransform }}>
             {/* Hero */}
             <motion.div
@@ -248,8 +220,8 @@ function NavBar() {
             </motion.div>
             {/* Anchors */}
             <motion.div
-              className={`flex gap-4 mt-4 pt-5 navItems lg:pl-5 ${
-                !mobileScreen ? 'mx-4' : ''
+              className={`flex gap-4 mt-4 pt-5 navItems md:pl-5 ${
+                !animSettings.mobileScreen ? 'mx-4' : ''
               }`}
               style={{
                 gap: anchorGap,
@@ -295,7 +267,7 @@ function NavBar() {
                       to={anchor.section}
                       spy={true}
                       smooth={true}
-                      offset={anchor.offset * scrollOffsetScale}
+                      offset={anchor.offset * animSettings.scrollOffsetScale}
                       duration={SCROLL_SPEED}
                       className="p-5 text-nowrap">
                       {anchor.title}

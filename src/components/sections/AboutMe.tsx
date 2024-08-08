@@ -40,11 +40,11 @@ function AboutMe() {
 
   return (
     <Section idx={0} name="aboutMe">
-      <div className="card-underlay w-[95%] lg:w-[75%] h-full lg:h-[80%] flex justify-center content-center">
-        <div className="card section-dark max-w-full flex flex-col justify-center items-center gap-12">
-          <div className="top-row flex-col lg:flex-row flex justify-center items-center gap-16">
+      <div className="card-underlay w-[95%] lg:w-[75%] h-fit md:h-[80%] flex justify-center content-center">
+        <div className="card section-dark h-full max-w-full flex flex-col justify-center items-center gap-12">
+          <div className="top-row flex-col md:flex-row flex justify-center items-center gap-16">
             <img
-              className="image w-64 aspect-square objectobject-top"
+              className="image w-48 md:w-64 aspect-square objectobject-top"
               src="about_me_image.jpg"
               alt="TODO: add some alt text here"
             />
@@ -62,7 +62,7 @@ function AboutMe() {
               music.
               <br />I work fairly often with technologies such as:
             </div>
-            <div className="flex gap-4 justify-center flex-wrap">
+            <div className="flex gap-4 justify-center flex-wrap xl:flex-nowrap">
               <LogoGroup
                 images={[logos[0], logos[1]]}
                 offset={groupOffsets[0]}
