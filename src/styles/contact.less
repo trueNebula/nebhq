@@ -1,0 +1,52 @@
+.contact-card {
+  // border: 0.2vw solid var(--primary-color);
+  // background-color: var(--primary-color);
+  height: 100%;
+  width: 100%;
+}
+
+.contact-item {
+  border-radius: 1vw;
+  transition: 500ms;
+}
+
+.contact-item:hover {
+  background-color: rgba(211, 211, 211, 0.4);
+}
+
+.color-green {
+  background-color: #8BD2CC;
+}
+
+.color-blue {
+  background-color: #968BD2;
+}
+
+.color-pink {
+  background-color: #D28B9B;
+}
+
+.card-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.front-wrapper,
+.back-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: 500ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.back-top {
+  background-color: #2F282C;
+}
+
+.white-bg {
+  background-color: var(--primary-color);
+}

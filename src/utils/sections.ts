@@ -2,7 +2,7 @@ export const sections = [
   { id: 'aboutMe', color: 'section-dark' },
   { id: 'work', color: 'section-mid' },
   { id: 'timeline', color: 'section-light' },
-  { id: 'contanct', color: 'section-dark' },
+  { id: 'contact', color: 'section-dark' },
 ];
 
 export type SectionType = {
@@ -11,3 +11,5 @@ export type SectionType = {
 };
 
 export const varHeightNames = ['timeline'];
+
+export const staticHeightNames = ['contact'];

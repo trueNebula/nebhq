@@ -189,3 +189,7 @@ export const separatorTransfoms: [string[], string[]] = [
   ['0rem', '-64rem'],
   ['100vw', '0vw'],
 ]
+
+export const iconSizes = {
+
+}

@@ -1,4 +1,3 @@
-import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import Separator from '@/components/Separator';
 import Background from '@/components/Background';
@@ -36,7 +35,8 @@ function MainPage() {
           <Timeline />
           <Contact />
         </main>
-        <Footer />
+        {/* Footer coming soon */}
+        {/* <Footer /> */}
       </div>
       <Background />
     </>

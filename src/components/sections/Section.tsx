@@ -1,6 +1,11 @@
 import '@/styles/sections.less';
 import { ReactNode } from 'react';
-import { varHeightNames, sections, SectionType } from '@/utils/sections';
+import {
+  varHeightNames,
+  sections,
+  SectionType,
+  staticHeightNames,
+} from '@/utils/sections';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 type SectionProps = {
@@ -12,7 +17,9 @@ type SectionProps = {
 function Section({ name = '', idx, children }: SectionProps) {
   const { isMobile } = useWindowDimensions();
   const section: SectionType = sections[idx];
-  const isVarHeight = varHeightNames.includes(name) || isMobile;
+  const isVarHeight =
+    (varHeightNames.includes(name) || isMobile) &&
+    !staticHeightNames.includes(name);
 
   return (
     <section
