@@ -55,7 +55,7 @@ function NavBar() {
       section: sections[0].id,
       title: 'About Me',
       rotation: 1,
-      offset: animSettings.linkOffset,
+      offset: -20 + animSettings.linkOffset,
       ref: useRef<HTMLDivElement>(null),
     },
     {
@@ -90,7 +90,7 @@ function NavBar() {
   const fontSize = useTransform(
     scrollYProgress,
     [0, 0.2],
-    [`${18 * animSettings.sizeScale}rem`, '1rem']
+    [`${18 * animSettings.sizeScale}rem`, '1.2rem']
   );
   // Y Margin transition for the title
   const marginYDiv = useTransform(
