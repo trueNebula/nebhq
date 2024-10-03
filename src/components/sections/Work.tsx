@@ -17,7 +17,7 @@ const cards: WorkCardInfo[] = [
     alt: 'J.EVC logo over a blurred image of its Java source code.',
     title: 'J.EVC',
     description:
-      "J.EVC is a custom video encoder developed for my bachleor's thesis. It's an exploration of the techniques that power modern video coding, as well as parallel computing and multithreading as a means of optimization.",
+      "J.EVC is a custom video encoder developed for my bachelor's thesis. It's an exploration of the techniques that power modern video coding, as well as parallel computing and multithreading as a means of optimization.",
     url: 'https://github.com/trueNebula/J.EVC',
   },
   {

@@ -83,7 +83,7 @@ function AboutMe() {
             <div>Welcome to my portfolio website!</div>
             <div className="bottom-row flex justify-center items-center gap-16">
               <a
-                href="@assets/CV_Gulei_Daniel.pdf"
+                href="GuleiDaniel_CV_New.pdf"
                 download="CV_Gulei_Daniel.pdf"
                 target="_blank"
                 className="cv-download"
